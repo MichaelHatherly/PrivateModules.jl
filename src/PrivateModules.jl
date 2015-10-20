@@ -141,7 +141,7 @@ build(x) = Expr(:block, [:(@local $arg) for arg in x.args]...)
 
 function newmodule(parent, x)
     name = gensym("<local-module>")
-    eval(parent, :(baremodule $name end))
+    eval(parent, :(module $name end))
     anon = getfield(parent, name)
     eval(anon, Expr(:import, x.args...))
     getfield(anon, x.args[end]), x.args[end]
