@@ -133,11 +133,15 @@ end
 
 function build(x, flag)
     x.args[1] === :. && unshift!(x.args, :.) # Relative modules are off by one.
-    object, name = newmodule(current_module(), x)
+    build(newmodule(current_module(), x)..., flag)
+end
+build(x) = Expr(:block, [:(@local $arg) for arg in x.args]...)
+
+function build(object :: Module, name, flag)
     symbols = flag ≡ nothing ? [name] : filter(Base.isidentifier, names(object, flag))
     esc(Expr(:block, [:(const $x = $object.$x) for x in symbols]...))
 end
-build(x) = Expr(:block, [:(@local $arg) for arg in x.args]...)
+build(object, name, flag) = esc(:(const $name = $object))
 
 function newmodule(parent, x)
     name = gensym("<local-module>")

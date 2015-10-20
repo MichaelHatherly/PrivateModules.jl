@@ -130,8 +130,43 @@ function testscopes(x)
         @test @islocal(build)
         @test @islocal(newmodule)
     end
+    let
+        @local import .A: g
+
+        @test !@islocal(f)
+        @test @islocal(g)
+        @test g(x) == 3x
+    end
+    let
+        @local import .A.B: k
+
+        @test !@islocal(h)
+        @test @islocal(k)
+        @test k(x) == 5x
+    end
+    let
+        @local import .A:   f, g
+        @local import .A.B: h, k
+
+        @test @islocal(f)
+        @test @islocal(g)
+        @test @islocal(h)
+        @test @islocal(k)
+    end
+
+    @test !@islocal(f)
+    @test !@islocal(g)
+    @test !@islocal(h)
+    @test !@islocal(k)
+    @test !@islocal(B)
 end
 testscopes(1)
+
+@test !@islocal(f)
+@test !@islocal(g)
+@test !@islocal(h)
+@test !@islocal(k)
+@test !@islocal(B)
 
 @test_throws ErrorException PrivateModules.localimports(:(a))
 
