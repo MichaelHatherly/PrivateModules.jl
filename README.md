@@ -10,7 +10,7 @@
 PrivateModules
 ```
 
-Provides an `@private` macro for hiding unexported symbols.
+Provides an `@private` macro for hiding unexported symbols and scoped import macro `@local`.
 
 <hr/>
 
@@ -42,3 +42,47 @@ using .M
 f(1)      # works
 M.g(1, 2) # fails
 ```
+
+<hr/>
+
+<a name="PrivateModules.@local"></a>
+
+```
+@local expression
+```
+
+Local `import`, `importall` and `using` macro.
+
+**Examples**
+
+```julia
+function func(args...)
+    @local using A, ..B, C.D
+    # ...
+end
+```
+
+Exported symbols from `A`, `..B`, and `C.D` are bound to local constants in `func`'s scope.
+
+```julia
+function func(args...)
+    @local importall A, ..B, C.D
+    # ...
+end
+```
+
+All symbols from `A`, `..B`, and `C.D` are bound to local constants in `func`'s scope.
+
+```julia
+function func(args...)
+    @local import A, ..B, C.D
+    # ...
+end
+```
+
+`A`, `B`, and `D` are bound to local constants in `func`'s scope.
+
+**Notes**
+
+  * Macros cannot be imported using the `@local` macro.
+  * Modules listed in `@local` calls must be literals - not variables.
