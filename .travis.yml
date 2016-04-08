@@ -1,12 +1,17 @@
-# Documentation: http://docs.travis-ci.com/user/languages/julia/
 language: julia
+
 os:
   - linux
   - osx
+
 julia:
   - 0.4
   - nightly
+
 notifications:
   email: false
+
 after_success:
-    - julia -e 'include(Pkg.dir("PrivateModules", "test", "coverage.jl"))'
+  - julia -e 'include(Pkg.dir("PrivateModules", "test", "coverage.jl"))'
+  - julia -e 'Pkg.clone("https://github.com/MichaelHatherly/Documenter.jl")'
+  - julia -e 'cd(Pkg.dir("PrivateModules")); include(joinpath("docs", "make.jl"))'

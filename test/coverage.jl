@@ -1,7 +1,10 @@
-# Collect coverage stats and send to Codecov.
+# Only run coverage from linux nightly build on travis.
+get(ENV, "TRAVIS_OS_NAME", "")       == "linux"   || exit()
+get(ENV, "TRAVIS_JULIA_VERSION", "") == "nightly" || exit()
 
-cd(Pkg.dir("PrivateModules"))
 Pkg.add("Coverage")
+using Coverage
 
-import Coverage: Codecov
-Codecov.submit(Codecov.process_folder())
+cd(Pkg.dir("PrivateModules")) do
+    Codecov.submit(Codecov.process_folder())
+end

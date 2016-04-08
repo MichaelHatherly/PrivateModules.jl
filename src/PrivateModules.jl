@@ -1,9 +1,8 @@
 __precompile__()
 
 """
-    PrivateModules
-
-Provides an `@private` macro for hiding unexported symbols and scoped import macro `@local`.
+Provides an [`@private`]({ref}) macro for hiding unexported symbols and scoped import macro
+[`@local`]({ref}).
 """
 module PrivateModules
 
@@ -15,9 +14,13 @@ using Base.Meta, Compat
 export @private
 
 """
-    @private module ... end
-
 Make unexported symbols in a module private.
+
+**Signature**
+
+```julia
+@private module ... end
+```
 
 **Example**
 
@@ -65,7 +68,11 @@ function private(x)
 end
 
 """
-    exports(outer, inner)
+**Signature**
+
+```julia
+exports(outer, inner)
+```
 
 Import all exported symbols from `inner` module into `outer` one and then re-export them.
 """
@@ -83,9 +90,13 @@ export @local
 
 @eval macro $(:local)(x) localimports(x) end
 """
-    @local expression
-
 Local `import`, `importall` and `using` macro.
+
+**Signature**
+
+```julia
+@local expression
+```
 
 **Examples**
 
@@ -118,7 +129,7 @@ end
 
 **Notes**
 
-- Macros cannot be imported using the `@local` macro.
+- Macros cannot be imported using the [`@local`]({ref}) macro.
 - Modules listed in `@local` calls must be literals - not variables.
 """
 :(@local)
