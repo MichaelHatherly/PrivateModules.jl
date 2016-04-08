@@ -1,0 +1,34 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "PrivateModules\n\n\nMake unexported symbols private.\n\n\n\n\nContents\n\n\n\n\nPrivateModules\n\n\nContents\n\n\nInstallation\n\n\nPublic Interface\n\n\nInternals\n\n\n\n\n\n\n\n\n\n\nInstallation\n\n\nThis package is registered in \nMETADATA.jl\n and so can be installed using \nPkg.add\n\n\nPkg\n.\nadd\n(\nPrivateModules\n)\n\n\n\n\n\n\n\n\nPublic Interface\n\n\n#\n\n\nPrivateModules\n \n \nModule\n.\n\n\n\n\nProvides an \n@private\n macro for hiding unexported symbols and scoped import macro \n@local\n.\n\n\n#\n\n\nPrivateModules.@private\n \n \nMacro\n.\n\n\n\n\nMake unexported symbols in a module private.\n\n\nSignature\n\n\n@\nprivate\n \nmodule\n \n...\n \nend\n\n\n\n\n\n\nExample\n\n\nusing\n \nPrivateModules\n\n\n\n@\nprivate\n \nmodule\n \nM\n\n\n\nexport\n \nf\n\n\n\nf\n(\nx\n)\n \n=\n \ng\n(\nx\n,\n \n2\nx\n)\n\n\n\ng\n(\nx\n,\n \ny\n)\n \n=\n \nx\n \n+\n \ny\n\n\n\nend\n\n\n\nusing\n \n.\nM\n\n\n\nf\n(\n1\n)\n      \n# works\n\n\nM\n.\ng\n(\n1\n,\n \n2\n)\n \n# fails\n\n\n\n\n\n\n#\n\n\nPrivateModules.@local\n \n \nMacro\n.\n\n\n\n\nLocal \nimport\n, \nimportall\n and \nusing\n macro.\n\n\nSignature\n\n\n@\nlocal\n \nexpression\n\n\n\n\n\n\nExamples\n\n\nfunction\n func\n(\nargs\n...\n)\n\n    \n@\nlocal\n \nusing\n \nA\n,\n \n..\nB\n,\n \nC\n.\nD\n\n    \n# ...\n\n\nend\n\n\n\n\n\n\nExported symbols from \nA\n, \n..B\n, and \nC.D\n are bound to local constants in \nfunc\n's scope.\n\n\nfunction\n func\n(\nargs\n...\n)\n\n    \n@\nlocal\n \nimportall\n \nA\n,\n \n..\nB\n,\n \nC\n.\nD\n\n    \n# ...\n\n\nend\n\n\n\n\n\n\nAll symbols from \nA\n, \n..B\n, and \nC.D\n are bound to local constants in \nfunc\n's scope.\n\n\nfunction\n func\n(\nargs\n...\n)\n\n    \n@\nlocal\n \nimport\n \nA\n,\n \n..\nB\n,\n \nC\n.\nD\n\n    \n# ...\n\n\nend\n\n\n\n\n\n\nA\n, \nB\n, and \nD\n are bound to local constants in \nfunc\n's scope.\n\n\nNotes\n\n\n\n\nMacros cannot be imported using the \n@local\n macro.\n\n\nModules listed in \n@local\n calls must be literals - not variables.\n\n\n\n\n\n\nInternals\n\n\n#\n\n\nPrivateModules.exports\n \n \nFunction\n.\n\n\n\n\nSignature\n\n\nexports\n(\nouter\n,\n \ninner\n)\n\n\n\n\n\n\nImport all exported symbols from \ninner\n module into \nouter\n one and then re-export them.", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#privatemodules", 
+            "text": "Make unexported symbols private.", 
+            "title": "PrivateModules"
+        }, 
+        {
+            "location": "/#contents", 
+            "text": "PrivateModules  Contents  Installation  Public Interface  Internals", 
+            "title": "Contents"
+        }, 
+        {
+            "location": "/#installation", 
+            "text": "This package is registered in  METADATA.jl  and so can be installed using  Pkg.add  Pkg . add ( PrivateModules )", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/#public-interface", 
+            "text": "#  PrivateModules     Module .   Provides an  @private  macro for hiding unexported symbols and scoped import macro  @local .  #  PrivateModules.@private     Macro .   Make unexported symbols in a module private.  Signature  @ private   module   ...   end   Example  using   PrivateModules  @ private   module   M  export   f  f ( x )   =   g ( x ,   2 x )  g ( x ,   y )   =   x   +   y  end  using   . M  f ( 1 )        # works  M . g ( 1 ,   2 )   # fails   #  PrivateModules.@local     Macro .   Local  import ,  importall  and  using  macro.  Signature  @ local   expression   Examples  function  func ( args ... ) \n     @ local   using   A ,   .. B ,   C . D \n     # ...  end   Exported symbols from  A ,  ..B , and  C.D  are bound to local constants in  func 's scope.  function  func ( args ... ) \n     @ local   importall   A ,   .. B ,   C . D \n     # ...  end   All symbols from  A ,  ..B , and  C.D  are bound to local constants in  func 's scope.  function  func ( args ... ) \n     @ local   import   A ,   .. B ,   C . D \n     # ...  end   A ,  B , and  D  are bound to local constants in  func 's scope.  Notes   Macros cannot be imported using the  @local  macro.  Modules listed in  @local  calls must be literals - not variables.", 
+            "title": "Public Interface"
+        }, 
+        {
+            "location": "/#internals", 
+            "text": "#  PrivateModules.exports     Function .   Signature  exports ( outer ,   inner )   Import all exported symbols from  inner  module into  outer  one and then re-export them.", 
+            "title": "Internals"
+        }
+    ]
+}
