@@ -4,7 +4,8 @@
 
 ## Contents
 
-    {contents}
+```@contents
+```
 
 ## Installation
 
@@ -16,12 +17,14 @@ Pkg.add("PrivateModules")
 
 ## Public Interface
 
-    {docs}
-    PrivateModules
-    @private
-    @local
+```@docs
+PrivateModules
+@private
+@local
+```
 
 ## Internals
 
-    {docs}
-    PrivateModules.exports
+```@docs
+PrivateModules.exports
+```

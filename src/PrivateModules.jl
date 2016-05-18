@@ -1,8 +1,8 @@
 __precompile__()
 
 """
-Provides an [`@private`]({ref}) macro for hiding unexported symbols and scoped import macro
-[`@local`]({ref}).
+Provides an [`@private`](@ref) macro for hiding unexported symbols and scoped import macro
+[`@local`](@ref).
 """
 module PrivateModules
 
@@ -129,7 +129,7 @@ end
 
 **Notes**
 
-- Macros cannot be imported using the [`@local`]({ref}) macro.
+- Macros cannot be imported using the [`@local`](@ref) macro.
 - Modules listed in `@local` calls must be literals - not variables.
 """
 :(@local)
