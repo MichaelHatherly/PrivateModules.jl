@@ -27,8 +27,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     
-    <link rel="shortcut icon" type="image/x-icon" href="./None">
-    <link rel="icon" type="image/x-icon" href="./None">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon-e565ddfa3b.ico">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon-e565ddfa3b.ico">
     <style>
       @font-face {
       	font-family: 'Icon';
@@ -45,7 +45,7 @@
       	font-style: normal;
       }
     </style>
-    <link rel="stylesheet" href="./assets/stylesheets/application-54f87043f3.css">
+    <link rel="stylesheet" href="./assets/stylesheets/application-a422ff04cc.css">
     
       <link rel="stylesheet" href="./assets/stylesheets/palettes-05ab2406df.css">
     
@@ -53,7 +53,7 @@
       
       
       
-      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu+Mono">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu+Mono">
       <style>
         body, input {
           font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
@@ -243,12 +243,10 @@
 <h2 id="public-interface">Public Interface</h2>
 <p><a id='PrivateModules' href='#PrivateModules'>#</a>
 <strong><code>PrivateModules</code></strong> &mdash; <em>Module</em>.</p>
-<hr />
 <p>Provides an <a href=".#PrivateModules.@private"><code>@private</code></a> macro for hiding unexported symbols and scoped import macro <a href=".#PrivateModules.@local"><code>@local</code></a>.</p>
-<p><a href='https://github.com/MichaelHatherly/PrivateModules.jl/tree/329a068b878c55a1c04f463504d37fb916fbc99e/src/PrivateModules.jl#L157' class='documenter-source'>source</a><br>
-<a id='PrivateModules.@private' href='#PrivateModules.@private'>#</a>
+<p><a target='_blank' href='https://github.com/MichaelHatherly/PrivateModules.jl/tree/481f9b1e5e81ece85aa461e18c618618407a6daf/src/PrivateModules.jl#L3-6' class='documenter-source'>source</a><br></p>
+<p><a id='PrivateModules.@private' href='#PrivateModules.@private'>#</a>
 <strong><code>PrivateModules.@private</code></strong> &mdash; <em>Macro</em>.</p>
-<hr />
 <p>Make unexported symbols in a module private.</p>
 <p><strong>Signature</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">private</span> <span class="k">module</span> <span class="o">...</span> <span class="k">end</span>
@@ -275,10 +273,18 @@
 </pre></div>
 
 
-<p><a href='https://github.com/MichaelHatherly/PrivateModules.jl/tree/329a068b878c55a1c04f463504d37fb916fbc99e/src/PrivateModules.jl#L16' class='documenter-source'>source</a><br>
-<a id='PrivateModules.@local' href='#PrivateModules.@local'>#</a>
+<p><a target='_blank' href='https://github.com/MichaelHatherly/PrivateModules.jl/tree/481f9b1e5e81ece85aa461e18c618618407a6daf/src/PrivateModules.jl#L16-45' class='documenter-source'>source</a><br></p>
+<p><strong>Methods</strong></p>
+<ul class="documenter-methodtable">
+<li>
+    <pre class="documenter-inline"><span class="nf">@private</span><span class="p">(</span><span class="n">x</span><span class="p">::</span><span class="n">ANY<:Any</span><span class="p">)</span></pre>
+    defined at
+    <a target="_blank" href="https://github.com/MichaelHatherly/PrivateModules.jl/tree/481f9b1e5e81ece85aa461e18c618618407a6daf/src/PrivateModules.jl#L46">src/PrivateModules.jl:46</a>
+</li>
+</ul>
+
+<p><a id='PrivateModules.@local' href='#PrivateModules.@local'>#</a>
 <strong><code>PrivateModules.@local</code></strong> &mdash; <em>Macro</em>.</p>
-<hr />
 <p>Local <code>import</code>, <code>importall</code> and <code>using</code> macro.</p>
 <p><strong>Signature</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">@</span><span class="kd">local</span> <span class="n">expression</span>
@@ -315,19 +321,35 @@
 <li>Macros cannot be imported using the <a href=".#PrivateModules.@local"><code>@local</code></a> macro.</li>
 <li>Modules listed in <code>@local</code> calls must be literals - not variables.</li>
 </ul>
-<p><a href='https://github.com/MichaelHatherly/PrivateModules.jl/tree/329a068b878c55a1c04f463504d37fb916fbc99e/src/PrivateModules.jl#L92' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MichaelHatherly/PrivateModules.jl/tree/481f9b1e5e81ece85aa461e18c618618407a6daf/src/PrivateModules.jl#L92-134' class='documenter-source'>source</a><br></p>
+<p><strong>Methods</strong></p>
+<ul class="documenter-methodtable">
+<li>
+    <pre class="documenter-inline"><span class="nf">@local</span><span class="p">(</span><span class="n">x</span><span class="p">::</span><span class="n">ANY<:Any</span><span class="p">)</span></pre>
+    defined at
+    <a target="_blank" href="https://github.com/MichaelHatherly/PrivateModules.jl/tree/481f9b1e5e81ece85aa461e18c618618407a6daf/src/PrivateModules.jl#L91">src/PrivateModules.jl:91</a>
+</li>
+</ul>
+
 <p><a id='Internals-1'></a></p>
 <h2 id="internals">Internals</h2>
 <p><a id='PrivateModules.exports' href='#PrivateModules.exports'>#</a>
 <strong><code>PrivateModules.exports</code></strong> &mdash; <em>Function</em>.</p>
-<hr />
 <p><strong>Signature</strong></p>
 <div class="codehilite"><pre><span></span><span class="n">exports</span><span class="p">(</span><span class="n">outer</span><span class="p">,</span> <span class="n">inner</span><span class="p">)</span>
 </pre></div>
 
 
 <p>Import all exported symbols from <code>inner</code> module into <code>outer</code> one and then re-export them.</p>
-<p><a href='https://github.com/MichaelHatherly/PrivateModules.jl/tree/329a068b878c55a1c04f463504d37fb916fbc99e/src/PrivateModules.jl#L70' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/MichaelHatherly/PrivateModules.jl/tree/481f9b1e5e81ece85aa461e18c618618407a6daf/src/PrivateModules.jl#L70-78' class='documenter-source'>source</a><br></p>
+<p><strong>Methods</strong></p>
+<ul class="documenter-methodtable">
+<li>
+    <pre class="documenter-inline"><span class="nf">exports</span><span class="p">(</span><span class="n">outer</span><span class="p">, </span><span class="n">inner</span><span class="p">)</span></pre>
+    defined at
+    <a target="_blank" href="https://github.com/MichaelHatherly/PrivateModules.jl/tree/481f9b1e5e81ece85aa461e18c618618407a6daf/src/PrivateModules.jl#L80">src/PrivateModules.jl:80</a>
+</li>
+</ul>
           <aside class="copyright" role="note">
             
             Documentation built with
