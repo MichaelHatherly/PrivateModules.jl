@@ -50,11 +50,11 @@ function private(x)
 
     # Rename module.
     outer = x.args[2]
-    inner = symbol(outer, "#private")
+    inner = Symbol(outer, "#private")
     x.args[2] = inner
 
-    # Change `eval` module reference to new inner module.
-    x.args[end].args[1].args[end].args[end].args[2] = inner
+    # The inner module's `eval` should eval inside the inner module, not the outer one.
+    unshift!(x.args[end].args, :(eval{T}(x::T) = Core.eval($inner, x)))
 
     # Build outer module.
     out = :(module $outer end)
