@@ -23,7 +23,7 @@ Documentation is generated using [`Documenter.jl`][documenter-url].
 [![][appveyor-img]][appveyor-url]
 [![][codecov-img]][codecov-url]
 
-[documenter-url]: https://github.com/MichaelHatherly/Documenter.jl
+[documenter-url]: https://github.com/JuliaDocs/Documenter.jl
 
 [docs-stable-img]: https://img.shields.io/badge/docs-stable-blue.svg
 [docs-stable-url]: https://michaelhatherly.github.io/PrivateModules.jl/stable
