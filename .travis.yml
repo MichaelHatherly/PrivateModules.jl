@@ -14,5 +14,5 @@ notifications:
 
 after_success:
   - julia -e 'include(Pkg.dir("PrivateModules", "test", "coverage.jl"))'
-  - julia -e 'Pkg.add("Documenter")'
+  - julia -e 'Pkg.add("Documenter"); Pkg.checkout("Documenter")'
   - julia -e 'cd(Pkg.dir("PrivateModules")); include(joinpath("docs", "make.jl"))'

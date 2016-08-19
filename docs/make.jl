@@ -1,11 +1,16 @@
 using Documenter, PrivateModules
 
 makedocs(
-    modules = PrivateModules,
-    clean   = false,
+    sitename = "PrivateModules.jl",
+    modules = [PrivateModules],
+    format = Documenter.Formats.HTML,
+    clean = false,
+    pages = Any["Home" => "index.md"],
 )
 
 deploydocs(
-    deps = Deps.pip("pygments", "mkdocs", "mkdocs-material"),
+    target = "build",
+    deps = nothing,
+    make = nothing,
     repo = "github.com/MichaelHatherly/PrivateModules.jl.git",
 )
