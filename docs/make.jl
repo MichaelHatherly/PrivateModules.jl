@@ -3,7 +3,7 @@ using Documenter, PrivateModules
 makedocs(
     sitename = "PrivateModules.jl",
     modules = [PrivateModules],
-    format = Documenter.Formats.HTML,
+    format = :html,
     clean = false,
     pages = Any["Home" => "index.md"],
 )
