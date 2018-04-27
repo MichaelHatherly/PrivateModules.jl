@@ -9,6 +9,7 @@ makedocs(
 )
 
 deploydocs(
+    julia = "nightly",
     target = "build",
     deps = nothing,
     make = nothing,
